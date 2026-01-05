@@ -1,0 +1,24 @@
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section{
+    border: 1px solid lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5rem;
+  column-gap: 5rem;
+}
+
+mat-dialog-actions {
+  padding: 16px;
+}
+
+

@@ -1,0 +1,482 @@
+<div class="example-stepper">
+    <div class="header">
+        <div class="header-title">
+            <h1>Compliance Management System</h1>
+            <span><i class="fas fa-map-marker-alt"></i> Viewing Region: Delhi NCR</span>
+        </div>
+        <div class="user-profile">
+            <i class="fas fa-user-circle fa-2x" style="color:green"></i>
+            <div>
+                <div>Amit Verma</div>
+                <small>Senior Inspector, CPCB</small>
+            </div>
+        </div>
+    </div>
+        <mat-stepper [orientation]="(stepperOrientation | async)!" linear>
+            <mat-step [stepControl]="industry_details_form" label="Industry Profile">
+                <form [formGroup]="industry_details_form">
+                    <div id="tab1" class="tab-content active">
+                        <h3 class="section-title">1.1 Basic Identity</h3>
+                        <div class="form-grid">
+                            <div>
+                                <div>Industry Name</div>
+                                <mat-form-field>
+                                    <input matInput formControlName="industry_name" placeholder="Enter industry Name" />
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <div>Operational Status</div>
+                                <mat-form-field>
+                                    <mat-select formControlName="operational_status">
+                                        <mat-option value="">Select</mat-option>
+                                        <mat-option value="Operational">Operational</mat-option>
+                                        <mat-option value="Food">Closed</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <div>Sector Category</div>
+                                <mat-form-field>
+                                    <mat-select formControlName="sector_category">
+                                        <mat-option value="">Select Sector</mat-option>
+                                        <mat-option value="Food">Food</mat-option>
+                                        <mat-option value="Textile">Textile</mat-option>
+                                        <mat-option value="Furnace">Furnace</mat-option>
+                                        <mat-option value="Other-Red_M&L">Other-Red_M&amp;L</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <h3 class="section-title">1.2 Location Details</h3>
+                        <div class="form-grid">
+                            <div>
+                                <div>District</div>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select (selectionChange)="onDistrictChange($event.value)"
+                                        formControlName="district">
+                                        <mat-option value="">Select District</mat-option>
+                                        <mat-option value="Delhi">Delhi</mat-option>
+                                        <mat-option value="Palwal">Palwal</mat-option>
+                                        <mat-option value="Faridabad">Faridabad</mat-option>
+                                        <mat-option value="Gurugram">Gurugram</mat-option>
+                                        <mat-option value="Panipat">Panipat</mat-option>
+                                        <mat-option value="Nuh">Nuh</mat-option>
+                                        <mat-option value="Sonipat">Sonipat</mat-option>
+                                        <mat-option value="Jhajjar">Jhajjar</mat-option>
+                                        <mat-option value="Bhiwani">Bhiwani</mat-option>
+                                        <mat-option value="Rewari">Rewari</mat-option>
+                                        <mat-option value="Jind">Jind</mat-option>
+                                        <mat-option value="Rohtak">Rohtak</mat-option>
+                                        <mat-option value="Charkhi Dadri">Charkhi Dadri</mat-option>
+                                        <mat-option value="Karnal">Karnal</mat-option>
+                                        <mat-option value="Ballabgarh">Ballabgarh</mat-option>
+                                        <mat-option value="Mahendergarh">Mahendergarh</mat-option>
+                                        <mat-option value="Kotputali-Behror">Kotputali-Behror</mat-option>
+                                        <mat-option value="Alwar">Alwar</mat-option>
+                                        <mat-option value="Khairthal-Tijara">Khairthal-Tijara</mat-option>
+                                        <mat-option value="Deeg">Deeg</mat-option>
+                                        <mat-option value="Gautam Budh Nagar">Gautam Budh Nagar</mat-option>
+                                        <mat-option value="Bulandshahr">Bulandshahr</mat-option>
+                                        <mat-option value="Muzaffarnagar">Muzaffarnagar</mat-option>
+                                        <mat-option value="Ghaziabad">Ghaziabad</mat-option>
+                                        <mat-option value="Hapur">Hapur</mat-option>
+                                        <mat-option value="Meerut">Meerut</mat-option>
+                                        <mat-option value="Baghpat">Baghpat</mat-option>
+                                        <mat-option value="Shamli">Shamli</mat-option>
+                                    </mat-select>
+                                    <!-- <mat-error>District is required</mat-error> -->
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <div>State (Auto-selected)</div>
+                                <mat-form-field>
+                                    <mat-select formControlName="state">
+                                        <mat-option value="">Select State</mat-option>
+                                        <mat-option value="Delhi">Delhi</mat-option>
+                                        <mat-option value="Haryana">Haryana</mat-option>
+                                        <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+                                        <mat-option value="Rajasthan">Rajasthan</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <div>Address (Detailed)</div>
+                                <mat-form-field>
+                                    <input matInput formControlName="address" placeholder="Plot No, Street..." />
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <div>Latitude (Verified)</div>
+                                <mat-form-field>
+                                    <input matInput type="number" formControlName="latitude" />
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <div>Longitude (Verified)</div>
+                                <mat-form-field>
+                                    <input matInput type="number" formControlName="longitude" />
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <div>Pincode</div>
+                                <mat-form-field>
+                                    <input matInput type="number" formControlName="pincode" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <h3 class="section-title">1.3 Is OCEMS and APCD Installed</h3>
+                        <div class="form-grid">
+                            <div>
+                                <div>Is OCEMS Installed</div>
+                                <mat-form-field>
+                                    <mat-select formControlName="ocems_status" (selectionChange)="IsOcemsInstalled($event.value)">
+                                        <mat-option value="yes">Yes</mat-option>
+                                        <mat-option value="no">No</mat-option>
+                                       
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <div>Is APCD Installed</div>
+                                <mat-form-field>
+                                    <mat-select formControlName="apcd_status" (selectionChange)="IsApcdInstalled($event.value)"> 
+                                        <mat-option value="yes">Yes</mat-option>
+                                        <mat-option value="no">No</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="next_button">
+                        <button matButton="outlined" matStepperNext [disabled]="!canGoNext">Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="ocems_details_form" label="OCEMS Details">
+                <form [formGroup]="this.ocems_details_form">
+                    <div class="section-header">
+                        <h3 class="section-title">2.1 OCEMS Device Inventory</h3>
+                        <button mat-raised-button color="primary" (click)="addItemInOCEMS()">
+                            <mat-icon>add</mat-icon>
+                            Add Another Device
+                        </button>
+                    </div>
+                    <div formArrayName="ocems_details" style="gap: 10px;display: flex; flex-direction: column;">
+                        <div *ngFor="let item of ocems_details_array.controls; let i = index" [formGroupName]="i">
+                            <div class="tab-content active">
+                                <div class="delete_icon" *ngIf="i > 0">
+                                    <button mat-raised-button color="warn" (click)="removeItemfromOCEMS(i)">
+                                        Remove
+                                    </button>
+                                </div>
+                                <div class="form-grid">
+                                    <div>
+                                        <div>Installed Status</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName="installed_status">
+                                                <mat-option value="Installed">Installed</mat-option>
+                                                <mat-option value="In Process">In Process (Order Placed)</mat-option>
+                                                <mat-option value="Not Installed">Not Installed</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <div>Is device NPL certified?</div>
+                                        <mat-form-field>
+                                            <mat-select
+                                                formControlName="isdevice_npcl_certified">
+                                                <mat-option value="No">No</mat-option>
+                                                <mat-option value="Yes">Yes</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Parameters Monitored</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select multiple [(value)]="parameters"
+                                                formControlName="parameter_monitored">
+                                                <mat-option value="PM">Particulate Matter (PM)</mat-option>
+                                                <mat-option value="SO2">Sulphur Dioxide (SO2)</mat-option>
+                                                <mat-option value="NOx">Oxides of Nitrogen (NOx)</mat-option>
+                                                <mat-option value="CO">Carbon Monoxide (CO)</mat-option>
+                                                <mat-option value="O2">Oxygen (O2)</mat-option>
+                                                <mat-option value="Other">Other</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-grid">
+                                    <ng-container *ngIf="isNpclYes(item)">
+                                        <div>
+                                            <div>NPL Certified Company</div>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select formControlName="npcl_certified_company">
+                                                    <mat-option value="">Select Company</mat-option>
+                                                    <mat-option *ngFor="let c of nplCompanies" [value]="c">
+                                                        {{ c }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <div>Manufacturer Name</div>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput formControlName="manufacturer_name"
+                                                    placeholder="Enter Manufacturer">
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <div>Model Number</div>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput formControlName="model_number" placeholder="Enter Model">
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <div>NPL Certificate No.</div>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput formControlName="npcl_certificate_no"
+                                                    placeholder="Auto-populated">
+                                            </mat-form-field>
+                                        </div>
+                                    </ng-container>
+
+                                    <div>
+                                        <div>Cost of Device (INR)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="cost_of_device" type="number">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="form-grid">
+                                    <div>
+                                        <div>Date of Installation</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput [matDatepicker]="picker" formControlName="date_of_installation">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="setTocol">
+                                        <div>
+                                            <div>Connectivity to CPCB Server</div>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select 
+                                                    formControlName="connectivity_to_cpcb_server">
+                                                    <mat-option value="Not Connected">Not Connected</mat-option>
+                                                    <mat-option value="Connected">Connected</mat-option>
+                                                    <mat-option value="Offline">Offline &gt; 48hrs</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div *ngIf="isConnected(item)">
+                                            <div>Unique ID in OCEMS Portals</div>
+                                            <mat-form-field>
+                                                <input matInput formControlName="unique_id_ocems_portal">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="setTocol">
+                                        <div>
+                                            <div>PTZ Camera Installed?</div>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select formControlName="ptz_camera_installed">
+                                                    <mat-option value="No">No</mat-option>
+                                                    <mat-option value="Yes">Yes</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div *ngIf="isPtzInstalled(item)">
+                                            <div>
+                                                <div>PTZ Camera Make</div>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName="ptz_camera_make">
+                                                </mat-form-field>
+                                            </div>
+
+                                            <div style="margin-top: 10px;">
+                                                <div>PTZ Camera Model</div>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName="ptz_camera_model">
+                                                </mat-form-field>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="next_button">
+                        <button matButton="outlined" matStepperPrevious>Back</button>
+                        <!-- <button matButton="outlined" matStepperNext>Next</button> -->
+                         <button matButton="outlined" matStepperNext [disabled]="!canGoNext">Next</button>
+                    </div>
+
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="apcd_details_form" label="APCD Assets">
+                <form [formGroup]="this.apcd_details_form">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 class="section-title" style="margin-bottom:0">3.1 Air Pollution Control Devices (APCD)</h3>
+                        <button type="button" mat-raised-button class="add-btn" (click)="addItemInAPCD()"><i
+                                class="fas fa-plus"></i> Add
+                            Another Device</button> 
+                    </div>
+                    <div formArrayName="apcd_details" style="gap: 10px;display: flex; flex-direction: column;">
+                        <div *ngFor="let item of apcd_details_array.controls; let i = index" [formGroupName]="i">
+                            <div class="tab-content active">
+                                <div class="delete_icon" *ngIf="i > 0">
+                                    <button mat-raised-button color="error" (click)="removeItemfromAPCD(i)">
+                                        Remove
+                                    </button>
+                                </div>
+                                <h4 style="margin-bottom: 10px;color: #008000;"> APCD System #{{i+1}}</h4>
+                                <mat-divider></mat-divider>
+                                <div class="form-grid">
+                                    <div>
+                                        <div>Source Type</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName="source_type"
+                                                (selectionChange)="updateAPCDOptions($event.value)">
+                                                <mat-option value="">Select Source</mat-option>
+                                                <mat-option value="Boiler">Boiler</mat-option>
+                                                <mat-option value="Thermic fluid heater">Thermic fluid heater</mat-option>
+                                                <mat-option value="Furnace">Furnace</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Fuel Used</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName="fuel_used">
+                                                <mat-option value="Coal">Coal</mat-option>
+                                                <mat-option value="PNG">PNG</mat-option>
+                                                <mat-option value="CNG">CNG</mat-option>
+                                                <mat-option value="Agro waste/Biomass">Agro waste / Biomass</mat-option>
+                                                <mat-option value="Met coke">Met coke</mat-option>
+                                                <mat-option value="LHS">LHS</mat-option>
+                                                <mat-option value="Electricity">Electricity</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Attached APCD Type</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName="attached_apcd_type" multiple>
+                                                <mat-option value="Bag filter">Bag filter</mat-option>
+                                                <mat-option value="Wet scrubber">Wet scrubber</mat-option>
+                                                <mat-option value="Cyclone separator">Cyclone separator</mat-option>
+                                                <mat-option value="Venture scrubber">Venture scrubber</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Stack Height (meters)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="stack_height" type="number"
+                                                placeholder="Ex: 30" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>MPC Empanelled Vendor</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName="mpc_empanelled_number">
+                                                @for (vendor of vendors; track vendor.value) {
+                                                <mat-option [value]="vendor.value">{{vendor.viewValue}}</mat-option>
+                                                }
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <h4 style="margin-top: 20px;margin-bottom: 10px;color:#008000;"> Performance &amp;
+                                    Efficiency</h4>
+                                <mat-divider></mat-divider>
+                                <div class="form-grid grid-4">
+                                    <div>
+                                        <div>Inlet PM/SOx/NOx (mg/Nm³)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="inlet_pm" type="number" placeholder="Inlet"
+                                                (input)="calculateEfficiency()" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Outlet PM/SOx/NOx (mg/Nm³)</div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label></mat-label>
+                                            <input matInput formControlName="outlet_pm" type="number" placeholder="Outlet"
+                                                (input)="calculateEfficiency()" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Efficiency (%)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="efficiency" placeholder="Calc %"
+                                                class="readonly-field" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Gas Flow Rate (Nm³/hr)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="gas_flow_rate" type="number"
+                                                placeholder="Flow" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Temperature (°C)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="temperature" type="number"
+                                                placeholder="Temp" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Pressure (mmHg)</div>
+                                        <mat-form-field appearance="outline">
+                                            <input matInput formControlName="pressure" type="number"
+                                                placeholder="Pressure" />
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div>
+                                        <div>Remarks (vs 80mg norms)</div>
+                                        <mat-form-field appearance="outline" class="span-2">
+                                            <input matInput formControlName="remarks"
+                                                placeholder="Complying / Non-complying" />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="next_button">
+                        <button matButton="outlined" matStepperPrevious>Back</button>
+                        <button matButton="outlined" (click)="submit()">Final Submit</button>
+                    </div>
+                </form>
+            </mat-step>
+        </mat-stepper>
+
+</div>

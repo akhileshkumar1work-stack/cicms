@@ -1,0 +1,240 @@
+.example-stepper {
+    /* margin-top: 8px; */
+    padding: 10px;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+}
+
+.header {
+    background: #ffff;
+    padding: 0px 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 10px;
+}
+.header-title > h1 {
+    font-size: 1.5rem;
+    color: green;
+    font-weight: 700;
+}
+
+.header-title span {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* stepper css ends */
+
+/* next button css*/
+.next_button {
+    display: flex;
+    justify-content: end;
+    margin-top: 1.5rem;
+    gap: 20px;
+}
+/*next end*/
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tab-btn.active {
+    background: var(--white);
+    color: var(--primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);  
+}
+
+.tab-btn i {
+    font-size: 1.2rem;
+}
+
+/* Content Sections */
+.tab-content {
+    display: none;
+    /* Hidden by default */
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); */
+    /* animation: fadeIn 0.4s ease; */
+    border: 1px solid #ebe6e6;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Grid System */
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Columns */
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.form-group small {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    height: 50px;
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #FAFAFA;
+    transition: border 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.form-control:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+    color: #495057;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+}
+
+/* Sub-Module Cards (For Multiple Devices) */
+.device-card {
+    border: 1px solid var(--border);
+    background: #F9FAFB;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.add-btn {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Sticky Footer */
+.footer-actions {
+    /* position: fixed; */
+    margin-top: 20px;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    padding: 20px 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+    height: 50px;
+    padding: 0 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.btn-submit {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-submit:hover {
+    background: var(--primary-dark);
+}

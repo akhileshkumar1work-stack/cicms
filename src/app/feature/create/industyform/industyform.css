@@ -1,0 +1,121 @@
+.example-stepper {
+    padding: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.readonly-field {
+  background-color: #e9ecef;
+  font-weight: 600;
+}
+
+.delete_icon {
+  float: right;
+  height: 0px;
+}
+.unique-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.uid-field {
+  width: 180px;
+}
+
+.section-title {
+  margin-top: 24px;
+}
+
+.header {
+    background: #ffff;
+    padding: 0px 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 10px;
+}
+.header-title > h1 {
+    font-size: 1.5rem;
+    color: green;
+    font-weight: 700;
+}
+
+.header-title span {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* stepper css ends */
+
+/* next button css*/
+.next_button {
+    display: flex;
+    justify-content: end;
+    margin-top: 1.5rem;
+    gap: 20px;
+}
+
+/* Content Sections */
+.tab-content {
+    display: none;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #ebe6e6;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-grid > div> div{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.setTocol{
+    display: flex; 
+    flex-direction: column;
+    margin: 5px;
+    gap: 10px;
+}
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary);
+    /* margin-bottom: 20px; */
+    /* padding-bottom: 10px; */
+    border-bottom: 2px solid var(--bg-light);
+}

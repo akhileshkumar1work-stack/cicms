@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Industry Details</h2>
+<mat-dialog-content class="dialog-content">
+  <div class="section">
+    <h3 style="margin-bottom: 10px;">Industry Information</h3>
+    <div class="grid">
+      <div><b>Name:</b> {{ data.industry_name }}</div>
+      <div><b>Status:</b> {{ data.operational_status }}</div>
+      <div><b>Sector:</b> {{ data.sector_category }}</div>
+      <div><b>District:</b> {{ data.district }}</div>
+      <div><b>State:</b> {{ data.state }}</div>
+      <div><b>Address:</b> {{ data.address }}</div>
+      <div><b>Pincode:</b> {{ data.pincode }}</div>
+    </div>
+  </div>
+
+  <div>
+    <ng-container *ngFor="let o of data.ocems_details; let i = index">
+      <h3>OCEMS {{ i + 1 }}</h3>
+      <div class="grid section">
+        <div><b>Installed Status:</b> {{ o.installed_status }}</div>
+        <div><b>NPCL Certified:</b> {{ o.isdevice_npcl_certified }}</div>
+        <div><b>Parameter:</b> {{ o.parameter_monitored }}</div>
+        <div><b>Company:</b> {{ o.npcl_certified_company }}</div>
+        <div><b>Manufacturer:</b> {{ o.manufacturer_name }}</div>
+        <div><b>Cost:</b> ₹{{ o.cost_of_device }}</div>
+        <div><b>Unique ID:</b> {{ o.unique_id_ocems_portal }}</div>
+        <div><b>PTZ Installed:</b> {{ o.ptz_camera_installed }}</div>
+    </div>
+    </ng-container>
+    
+  </div>
+
+   <div>
+    <ng-container *ngFor="let a of data.apcd_details; let i = index">
+    <h3>APCD {{ i + 1 }}</h3>
+    <div class="grid section">
+      <div><b>Source:</b> {{ a.source_type }}</div>
+      <div><b>Fuel:</b> {{ a.fuel_used }}</div>
+      <div><b>APCD Type:</b> {{ a.attached_apcd_type }}</div>
+      <div><b>Stack Height:</b> {{ a.stack_height }}</div>
+      <div><b>Efficiency:</b> {{ a.efficiency }}</div>
+      <div><b>Remarks:</b> {{ a.remarks }}</div>
+    </div>
+   </ng-container>
+   </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="close()">
+    Close
+  </button>
+</mat-dialog-actions>
+ 

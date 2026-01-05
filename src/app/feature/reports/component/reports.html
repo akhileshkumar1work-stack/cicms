@@ -1,0 +1,389 @@
+<div class="main-content">
+    <div class="report-header">
+        <div>
+            <h2>Reports & Analysis</h2>
+            <p style="color: grey">Generate compliance matrices for Delhi NCR</p>
+        </div>
+        <div class="right_button">
+            <button class="btn-run" style="background: #059669"><i class="fas fa-file-excel"></i> Export
+                Excel</button>
+            <button class="btn-run" style="background: #DC2626"><i class="fas fa-file-pdf"></i> Export PDF</button>
+        </div>
+    </div>
+
+    <div class="query-builder">
+        <h4 style="margin-bottom:15px; color: #1565C0"><i class="fas fa-filter"></i> Ad-hoc Query Builder
+        </h4>
+        <div class="query-row">
+            <select class="q-input">
+                    <option>State</option>
+                    <option>Sector</option>
+                    <option>Status</option>
+                </select>
+                <select class="q-input">
+                    <option>Equals</option>
+                    <option>Not Equals</option>
+                </select>
+                <select class="q-input">
+                    <option>Haryana</option>
+                    <option>Delhi</option>
+                </select>
+                <!-- <span style="font-weight:bold">AND</span> -->
+                <select class="q-input">
+                    <option>OCEMS Status</option>
+                </select>
+                <select class="q-input">
+                    <option>Equals</option>
+                </select>
+                <select class="q-input">
+                    <option>Not Installed</option>
+                </select>  
+             <button matButton="filled">Run Query</button>
+        </div>
+    </div>
+
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+        <mat-tab label="Report 1: State Wise">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State/UT</th>
+                            <th>Total Units</th>
+                            <th class="highlight-col">Connected (Pre-Oct)</th>
+                            <th>Directed for Install</th>
+                            <th>SPCB Directions</th>
+                            <th>Floated Req.</th>
+                            <th>Order Placed</th>
+                            <th>Applied Connectivity</th>
+                            <th>Ensured (SPCB)</th>
+                            <th>Registered (IT Div)</th>
+                            <th>Data Available (IT Div)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Report 2: Sector Wise">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State/UT</th>
+                            <th>Total Units</th>
+                            <th class="highlight-col">Connected (Pre-Oct)</th>
+                            <th>Directed for Install</th>
+                            <th>SPCB Directions</th>
+                            <th>Floated Req.</th>
+                            <th>Order Placed</th>
+                            <th>Applied Connectivity</th>
+                            <th>Ensured (SPCB)</th>
+                            <th>Registered (IT Div)</th>
+                            <th>Data Available (IT Div)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Report 3: District Wise">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State/UT</th>
+                            <th>Total Units</th>
+                            <th class="highlight-col">Connected (Pre-Oct)</th>
+                            <th>Directed for Install</th>
+                            <th>SPCB Directions</th>
+                            <th>Floated Req.</th>
+                            <th>Order Placed</th>
+                            <th>Applied Connectivity</th>
+                            <th>Ensured (SPCB)</th>
+                            <th>Registered (IT Div)</th>
+                            <th>Data Available (IT Div)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Haryana</strong></td>
+                            <td>1,154</td>
+                            <td class="highlight-col">800</td>
+                            <td>354</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>40</td>
+                            <td>810</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 790</td>
+                            <td>785</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delhi</strong></td>
+                            <td>128</td>
+                            <td class="highlight-col">70</td>
+                            <td>58</td>
+                            <td>18</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>75</td>
+                            <td><i class="fas fa-check-circle" style="color:green"></i> 72</td>
+                            <td>70</td>
+                        </tr>
+                        <tr style="background: #f9f9f9; font-weight: bold;">
+                            <td>TOTAL</td>
+                            <td>2,254</td>
+                            <td>1,420</td>
+                            <td>834</td>
+                            <td>254</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>100</td>
+                            <td>1,450</td>
+                            <td>1,400</td>
+                            <td>1,390</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

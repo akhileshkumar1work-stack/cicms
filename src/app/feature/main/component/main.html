@@ -1,0 +1,114 @@
+<div class="main-content">
+
+        <div class="top-bar">
+            <div class="page-title">
+                <h2>Compliance Overview: Delhi NCR</h2>
+                <p>Real-time monitoring of APCD & OCEMS Installation</p>
+            </div>
+            <div class="date-filter">
+                <i class="far fa-calendar-alt"></i> Today: Dec 06, 2025
+            </div>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card card-blue">
+                <h3>Total Targeted Units</h3>
+                <div class="value">2,254</div>
+                <div class="trend"><span style="color: var(--secondary)">Delhi, HR, RJ, UP</span></div>
+            </div>
+            <div class="kpi-card card-green">
+                <h3>OCEMS Connected</h3>
+                <div class="value">1,420</div>
+                <div class="trend"><span style="color: var(--primary)"><i class="fas fa-arrow-up"></i> 12%</span> vs
+                    last month</div>
+            </div>
+            <div class="kpi-card card-amber">
+                <h3>Order Placed / In-Process</h3>
+                <div class="value">580</div>
+                <div class="trend"><span style="color: var(--warning)">Delivery pending</span></div>
+            </div>
+            <div class="kpi-card card-red">
+                <h3>Directions Issued</h3>
+                <div class="value">254</div>
+                <div class="trend"><span style="color: var(--danger)">Immediate Action</span></div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Report 1: State-wise Connectivity Status</h3>
+                    <button class="btn-export"><i class="fas fa-download"></i> Export Excel</button>
+                </div>
+                <canvas id="stateChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Report 2: Sector Breakdown</h3>
+                </div>
+                <canvas id="sectorChart"></canvas>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <div class="table-header">
+                <div>
+                    <h3><i class="fas fa-bell" style="color: var(--danger)"></i> Action Required: Upcoming Installations
+                        (Next 7 Days)</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top:5px;">
+                        Industries where "Order Placed" date is approaching deadline. Trigger email to DH.
+                    </p>
+                </div>
+                <span class="alert-badge">5 Alerts Pending</span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Industry Name</th>
+                        <th>District/State</th>
+                        <th>Device Ordered</th>
+                        <th>Expected Install Date</th>
+                        <th>DH Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Apex Metals Pvt Ltd</strong><br><small>Red Category</small></td>
+                        <td>Faridabad, Haryana</td>
+                        <td>Horiba - ENDA 5000</td>
+                        <td style="color: var(--danger); font-weight:600;">Dec 08, 2025</td>
+                        <td><span class="status-pill status-order">Order Placed</span></td>
+                        <td><button class="btn-action"><i class="fas fa-envelope"></i> Email DH</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ganga Textiles Ltd</strong><br><small>Textile</small></td>
+                        <td>Panipat, Haryana</td>
+                        <td>Teledyne - T200</td>
+                        <td style="color: var(--danger); font-weight:600;">Dec 09, 2025</td>
+                        <td><span class="status-pill status-order">Order Placed</span></td>
+                        <td><button class="btn-action"><i class="fas fa-envelope"></i> Email DH</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Okhla Dyeing Works</strong><br><small>Textile</small></td>
+                        <td>Delhi, Delhi</td>
+                        <td>Envea - MIR 9000</td>
+                        <td style="color: var(--warning); font-weight:600;">Dec 11, 2025</td>
+                        <td><span class="status-pill status-order">Order Placed</span></td>
+                        <td><button class="btn-action"><i class="fas fa-envelope"></i> Email DH</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rajasthan Alloys</strong><br><small>Metal</small></td>
+                        <td>Alwar, Rajasthan</td>
+                        <td>Forbes Marshall - GCEM</td>
+                        <td style="color: var(--warning); font-weight:600;">Dec 12, 2025</td>
+                        <td><span class="status-pill status-order">Order Placed</span></td>
+                        <td><button class="btn-action"><i class="fas fa-envelope"></i> Email DH</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>

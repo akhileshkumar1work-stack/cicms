@@ -1,0 +1,14 @@
+.dashboard {
+    background-color: #F3F4F6;
+    /* display: flex; */
+    min-height: 100vh;
+   overflow: hidden;
+}
+
+.mainsection{
+  margin-left: 16.25rem; /* push right of sidebar */
+  width: calc(100vw - 16.25rem); /* remaining width */
+  
+}
+/* --- Sidebar --- */
+

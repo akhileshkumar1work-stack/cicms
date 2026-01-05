@@ -1,0 +1,38 @@
+/* Input Size Variants for Angular Material */
+@use 'sass:map';
+
+/* Define sizes and font sizes */
+$input-sizes: (
+  small: (
+    width: 150px,
+    font-size: 12px,
+    padding: 4px 8px
+  ),
+  medium: (
+    width: 250px,
+    font-size: 14px,
+    padding: 6px 10px
+  ),
+  large: (
+    width: 400px,
+    font-size: 16px,
+    padding: 8px 12px
+  ),
+  full: (
+    width: 100%,
+    font-size: 14px,
+    padding: 6px 10px
+  )
+);
+
+/* Generate classes dynamically */
+@each $name, $props in $input-sizes {
+  .mat-form-field-#{$name} {
+    width: map.get($props, width);
+
+    .mat-input-element {
+      font-size: map.get($props, font-size);
+      padding: map.get($props, padding);
+    }
+  }
+}

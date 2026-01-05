@@ -1,0 +1,115 @@
+<div class="main">
+    <div class="login-wrapper">
+        <div class="brand-section">
+            <div class="gov-logos">
+                <div class="logo-placeholder" title="National Emblem"><i class="fas fa-landmark"></i></div>
+                <div class="logo-placeholder" title="CPCB Logo"><i class="fas fa-leaf"></i></div>
+            </div>
+
+            <div class="portal-title">
+                <h1>
+                    <span style="color: white;">PACE</span>
+                </h1>
+                <p>
+                    Portal for <span style="color: #A5D6A7; font-weight:700;">Air Compliance</span> & Enforcement
+                </p>
+                <small style="display:block; margin-top:10px; opacity: 0.8;">Central Pollution Control Board</small>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-industry"></i>
+                    <span>Industry Registration & Tracking</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-video"></i>
+                    <span>Real-time OCEMS Surveillance</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>Compliance Reporting</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-header">
+                <h2>Secure Login</h2>
+                <p>Enter your credentials to access the system.</p>
+            </div>
+
+            <form [formGroup]="formGroupDetails" (ngSubmit)="login()">
+                <div class="input-group">
+                    <label for="userid">User ID / Official Email</label>
+                    <div class="input-wrapper">
+                        <div>
+                            <mat-form-field>
+                                <input matInput formControlName="username" placeholder="Enter user email" />
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            @if(submitted && f['username'].errors){
+                            @if(f['username'].errors['required']){
+                            <span class="error">Email is required.</span>
+                            } @else if (f['username'].errors['email']) {
+                            <span class="error">Enter a valid email.</span>
+                            }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <mat-form-field>
+                                <input matInput formControlName="password" placeholder="Enter password" />
+                        </mat-form-field>
+                        @if(submitted && f['password'].errors){
+                        @if(f['password'].errors['required']){
+                        <p class="error">Password is required.</p>
+                        } @else if (f['password'].errors['minlength']) {
+                        <p class="error">Min length should be 5.</p>
+                        }
+                        }
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Security Verification</label>
+                    <div class="captcha-group">
+                         <img [src]="captchaSvg" />
+                        <button type="button" class="refresh-btn" (click)="loadCaptcha()"><i class="fas fa-sync-alt"></i></button>
+                        
+                    </div>
+                    <div class="input-wrapper">
+                         <mat-form-field>
+                                <input matInput formControlName="captcha" placeholder="Enter the code above" />
+                        </mat-form-field>
+                        @if(submitted && f['captcha'].errors){
+                            @if(f['captcha'].errors['required']){
+                                <span class="error">Captcha is required.</span>
+                            }
+                            }
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    Login to Portal <i class="fas fa-arrow-right"></i>
+                </button>
+                @if(errorMessage){
+                    <p class="error">{{this.errorMessage}}</p>
+                }
+                <div class="links">
+                    <a href="#">Forgot Password?</a>
+                    <a href="#">Helpdesk Support</a>
+                </div>
+            </form>
+
+            <div class="card-footer">
+                &copy; 2025 Central Pollution Control Board. All rights reserved.<br>
+                <small>Best viewed in Chrome/Edge. Version 1.0</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} */
+/* body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+} */
+
+:root {
+    --primary-green: #2E7D32;
+    /* CPCB Green */
+    --primary-dark: #1B5E20;
+    --secondary-blue: #1565C0;
+    /* Gov Trust Blue */
+    --bg-color: #F3F4F6;
+    --text-dark: #1F2937;
+    --text-gray: #6B7280;
+    --white: #ffffff;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.form-sm {
+  .mat-mdc-text-field-wrapper {
+    height: 10px;
+  }
+
+  .mat-mdc-form-field-infix {
+    padding: 6px 10px !important;
+  }
+
+  .mat-mdc-floating-label {
+    font-size: 12px;
+  }
+}
+
+/* Global input customization */
+.mat-mdc-form-field {
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Input height */
+.mat-mdc-text-field-wrapper {
+  height: 44px;
+}
+
+/* Input padding */
+.mat-mdc-form-field-infix {
+  padding: 10px 12px !important;
+}
+
+/* Label position */
+.mat-mdc-floating-label {
+  font-size: 13px;
+}
+
+
+.cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: unset !important;
+    min-width: unset !important;
+}
