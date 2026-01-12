@@ -8,12 +8,12 @@ import { MaterialModule } from '../../../../shared/material/material-module';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { IndustryView } from '../../../../shared/components/industry-view/industry-view';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-industry-details',
   standalone: true,
-  imports: [CommonModule, MaterialModule, MatTooltipModule  ],
+  imports: [CommonModule, MaterialModule],
   templateUrl: './industry-details.html',
   styleUrls: ['./industry-details.css']
 })
@@ -43,8 +43,22 @@ export class IndustryDetails implements OnInit {
     private dialog: MatDialog
   ) {}
 
+  private searchSubject = new Subject<string>();
+  private destroy$ = new Subject<void>();
+
   ngOnInit() {
     this.loadData();
+    this.searchSubject
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(value => {
+        this.searchText = value;
+        this.pageIndex = 0;
+        this.loadData();
+      });
   }
 
   loadData() {
@@ -66,9 +80,8 @@ export class IndustryDetails implements OnInit {
   }
 
   onSearch(value: string) {
-    this.searchText = value;
     this.pageIndex = 0;
-    this.loadData();
+    this.searchSubject.next(value);
   }
 
   onSort(sort: Sort) {
@@ -100,4 +113,8 @@ export class IndustryDetails implements OnInit {
     action: "Action"
   };
 
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

@@ -55,8 +55,7 @@
                             <div>
                                 <div>District</div>
                                 <mat-form-field appearance="outline" class="full-width">
-                                    <mat-select (selectionChange)="onDistrictChange($event.value)"
-                                        formControlName="district">
+                                    <mat-select formControlName="district" (selectionChange)="onDistrictChange($event.value)">
                                         <mat-option value="">Select District</mat-option>
                                         <mat-option value="Delhi">Delhi</mat-option>
                                         <mat-option value="Palwal">Palwal</mat-option>
@@ -92,7 +91,7 @@
                             </div>
                             <div>
                                 <div>State (Auto-selected)</div>
-                                <mat-form-field>
+                                <mat-form-field >
                                     <mat-select formControlName="state">
                                         <mat-option value="">Select State</mat-option>
                                         <mat-option value="Delhi">Delhi</mat-option>
@@ -135,7 +134,7 @@
                             <div>
                                 <div>Is OCEMS Installed</div>
                                 <mat-form-field>
-                                    <mat-select formControlName="ocems_status" (selectionChange)="IsOcemsInstalled($event.value)">
+                                    <mat-select formControlName="ocems_status">
                                         <mat-option value="yes">Yes</mat-option>
                                         <mat-option value="no">No</mat-option>
                                        
@@ -145,7 +144,7 @@
                             <div>
                                 <div>Is APCD Installed</div>
                                 <mat-form-field>
-                                    <mat-select formControlName="apcd_status" (selectionChange)="IsApcdInstalled($event.value)"> 
+                                    <mat-select formControlName="apcd_status"> 
                                         <mat-option value="yes">Yes</mat-option>
                                         <mat-option value="no">No</mat-option>
                                     </mat-select>

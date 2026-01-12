@@ -80,30 +80,29 @@ export class Industyform implements OnInit {
   }
 
   private patchForm(data: any) {
+    /* -------- Industry Details -------- */
+    this.mainForm.get('industry_details')?.patchValue(data);
 
-  /* -------- Industry Details -------- */
-  this.mainForm.get('industry_details')?.patchValue(data);
+    /* -------- OCEMS Details -------- */
+    const ocemsArray = this.ocems_details_array;
+    ocemsArray.clear();
 
-  /* -------- OCEMS Details -------- */
-  const ocemsArray = this.ocems_details_array;
-  ocemsArray.clear();
+    if (data.ocems_details?.length) {
+      data.ocems_details.forEach((item: any) => {
+        ocemsArray.push(this.createStepTwoForm(item));
+      });
+    }
 
-  if (data.ocems_details?.length) {
-    data.ocems_details.forEach((item: any) => {
-      ocemsArray.push(this.createStepTwoForm(item));
-    });
+    /* -------- APCD Details -------- */
+    const apcdArray = this.apcd_details_array;
+    apcdArray.clear();
+
+    if (data.apcd_details?.length) {
+      data.apcd_details.forEach((item: any) => {
+        apcdArray.push(this.createStepThreeForm(item));
+      });
+    }
   }
-
-  /* -------- APCD Details -------- */
-  const apcdArray = this.apcd_details_array;
-  apcdArray.clear();
-
-  if (data.apcd_details?.length) {
-    data.apcd_details.forEach((item: any) => {
-      apcdArray.push(this.createStepThreeForm(item));
-    });
-  }
-}
 
 
   createStepTwoForm(data?: any): FormGroup {
@@ -236,7 +235,6 @@ convetRawDataIntoPayloadFormat(input: any) {
           : item.parameter_monitored
       };
 
-      // ✅ REMOVE ID FOR NEW RECORD
       if (!payload.ocems_id) {
         delete payload.ocems_id;
       }
@@ -253,7 +251,6 @@ convetRawDataIntoPayloadFormat(input: any) {
             : item.attached_apcd_type
         };
 
-        // ✅ REMOVE ID FOR NEW RECORD
         if (!payload.apcd_id) {
           delete payload.apcd_id;
         }
@@ -298,51 +295,79 @@ convetRawDataIntoPayloadFormat(input: any) {
   }
 
   onDistrictChange(district: string) {
-    // Example logic
-    // Map district → state and set form control value
+    const state = this.districtStateMap[district] || '';
+    this.mainForm.get('industry_details')?.patchValue({
+      state: state
+    });
   }
 
-  IsOcemsInstalled(value: any){
-    console.log('ocems / apcd called', value);
-  }
+  districtStateMap: Record<string, string> = {
+    // Delhi
+    Delhi: 'Delhi',
+    // Haryana
+    Palwal: 'Haryana',
+    Faridabad: 'Haryana',
+    Gurugram: 'Haryana',
+    Panipat: 'Haryana',
+    Nuh: 'Haryana',
+    Sonipat: 'Haryana',
+    Jhajjar: 'Haryana',
+    Bhiwani: 'Haryana',
+    Rewari: 'Haryana',
+    Jind: 'Haryana',
+    Rohtak: 'Haryana',
+    'Charkhi Dadri': 'Haryana',
+    Karnal: 'Haryana',
+    Ballabgarh: 'Haryana',
+    Mahendergarh: 'Haryana',
+    // Rajasthan
+    'Kotputali-Behror': 'Rajasthan',
+    Alwar: 'Rajasthan',
+    'Khairthal-Tijara': 'Rajasthan',
+    Deeg: 'Rajasthan',
+    // Uttar Pradesh
+    'Gautam Budh Nagar': 'Uttar Pradesh',
+    Bulandshahr: 'Uttar Pradesh',
+    Muzaffarnagar: 'Uttar Pradesh',
+    Ghaziabad: 'Uttar Pradesh',
+    Hapur: 'Uttar Pradesh',
+    Meerut: 'Uttar Pradesh',
+    Baghpat: 'Uttar Pradesh',
+    Shamli: 'Uttar Pradesh'
+  };
 
-  IsApcdInstalled(value: any){
-    console.log('ocems / apcd called', value);
-  }
-
-  districts: string[] = [
-    'Delhi',
-    'Palwal',
-    'Faridabad',
-    'Gurugram',
-    'Panipat',
-    'Nuh',
-    'Sonipat',
-    'Jhajjar',
-    'Bhiwani',
-    'Rewari',
-    'Jind',
-    'Rohtak',
-    'Charkhi Dadri',
-    'Karnal',
-    'Ballabgarh',
-    'Mahendergarh',
-    'Kotputali-Behror',
-    'Alwar',
-    'Khairthal-Tijara',
-    'Deeg',
-    'Gautam Budh Nagar',
-    'Bulandshahr',
-    'Muzaffarnagar',
-    'Ghaziabad',
-    'Hapur',
-    'Meerut',
-    'Baghpat',
-    'Shamli',
-  ];
+  // districts: string[] = [
+  //   'Delhi',
+  //   'Palwal',
+  //   'Faridabad',
+  //   'Gurugram',
+  //   'Panipat',
+  //   'Nuh',
+  //   'Sonipat',
+  //   'Jhajjar',
+  //   'Bhiwani',
+  //   'Rewari',
+  //   'Jind',
+  //   'Rohtak',
+  //   'Charkhi Dadri',
+  //   'Karnal',
+  //   'Ballabgarh',
+  //   'Mahendergarh',
+  //   'Kotputali-Behror',
+  //   'Alwar',
+  //   'Khairthal-Tijara',
+  //   'Deeg',
+  //   'Gautam Budh Nagar',
+  //   'Bulandshahr',
+  //   'Muzaffarnagar',
+  //   'Ghaziabad',
+  //   'Hapur',
+  //   'Meerut',
+  //   'Baghpat',
+  //   'Shamli',
+  // ];
 
   parameters: string[] = [];
-  // connectivity = 'Not Connected';
   ptzInstalled: boolean = false;
 
   nplCompanies: string[] = [
@@ -378,10 +403,10 @@ convetRawDataIntoPayloadFormat(input: any) {
   }
 
   get canGoNext(): boolean {
-  return (
-    this.industry_details_form.get('ocems_status')?.value === 'yes' &&
-    this.industry_details_form.get('apcd_status')?.value === 'yes'
-  );
-}
+    return (
+      this.industry_details_form.get('ocems_status')?.value === 'yes' &&
+      this.industry_details_form.get('apcd_status')?.value === 'yes'
+    );
+  }
   
 }

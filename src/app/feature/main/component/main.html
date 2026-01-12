@@ -13,23 +13,23 @@
         <div class="kpi-grid">
             <div class="kpi-card card-blue">
                 <h3>Total Targeted Units</h3>
-                <div class="value">2,254</div>
+                <div class="value">{{totalCount?.totalcount}}</div>
                 <div class="trend"><span style="color: var(--secondary)">Delhi, HR, RJ, UP</span></div>
             </div>
             <div class="kpi-card card-green">
                 <h3>OCEMS Connected</h3>
-                <div class="value">1,420</div>
+                <div class="value">{{totalCount?.ocems_connected}}</div>
                 <div class="trend"><span style="color: var(--primary)"><i class="fas fa-arrow-up"></i> 12%</span> vs
                     last month</div>
             </div>
             <div class="kpi-card card-amber">
                 <h3>Order Placed / In-Process</h3>
-                <div class="value">580</div>
+                <div class="value">{{totalCount?.order_placed}}</div>
                 <div class="trend"><span style="color: var(--warning)">Delivery pending</span></div>
             </div>
             <div class="kpi-card card-red">
                 <h3>Directions Issued</h3>
-                <div class="value">254</div>
+                <div class="value">{{totalCount?.directed_issue}}</div>
                 <div class="trend"><span style="color: var(--danger)">Immediate Action</span></div>
             </div>
         </div>
@@ -38,16 +38,26 @@
             <div class="chart-container">
                 <div class="chart-header">
                     <h3>Report 1: State-wise Connectivity Status</h3>
-                    <button class="btn-export"><i class="fas fa-download"></i> Export Excel</button>
+                    <!-- <button class="btn-export"><i class="fas fa-download"></i> Export Excel</button> -->
                 </div>
-                <canvas id="stateChart"></canvas>
+                 <canvas
+                    baseChart
+                    [type]="barChartType"
+                    [data]="barChartData"
+                    [options]="barChartOptions">
+                </canvas>
             </div>
 
             <div class="chart-container">
                 <div class="chart-header">
                     <h3>Report 2: Sector Breakdown</h3>
                 </div>
-                <canvas id="sectorChart"></canvas>
+                <canvas
+                    baseChart
+                    [type]="doughnutChartType"
+                    [data]="doughnutChartData"
+                    [options]="doughnutChartOptions">
+                </canvas>
             </div>
         </div>
 

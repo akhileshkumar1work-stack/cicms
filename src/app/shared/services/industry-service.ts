@@ -26,4 +26,17 @@ export class IndustryService {
     getDataById(id: string){
       return this.http.get<any>( `${this.apiUrl}${id}`);
     }
+
+    //det dashboard details
+    getDashboardDetails(){
+      return this.http.get<any>(`${this.apiUrl}dblist`)
+    }
+
+    getCategoryCountDetails(){
+      return this.http.get<any>(`${this.apiUrl}category-count`)
+    }
+
+    getFirstSectionTotalCount(){
+      return this.http.get<any>(`${this.apiUrl}total-count`);
+    }
 }

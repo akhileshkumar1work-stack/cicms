@@ -196,3 +196,10 @@ td {
 .btn-action:hover {
     background: #0D47A1;
 }
+
+.chart-container {
+  height: 400px;
+  margin-top: 12px;
+}
+
+
