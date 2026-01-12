@@ -63,7 +63,7 @@
                     <label for="password">Password</label>
                     <div class="input-wrapper">
                         <mat-form-field>
-                                <input matInput formControlName="password" placeholder="Enter password" />
+                                <input type="password" matInput formControlName="password" placeholder="Enter password" />
                         </mat-form-field>
                         @if(submitted && f['password'].errors){
                         @if(f['password'].errors['required']){

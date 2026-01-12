@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { CaptchaService } from '../../shared/services/captcha-service';
+import { TokenStoreService } from '../../core/services/token-store.service';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,11 @@ import { CaptchaService } from '../../shared/services/captcha-service';
 })
 export class Login implements OnInit {
   constructor(
-    public fb: FormBuilder, 
+    public fb: FormBuilder,
     public router: Router,
-    public captchaService: CaptchaService
-  ){}
+    public captchaService: CaptchaService,
+    private tokenStoreService: TokenStoreService
+  ) {}
 
   formGroupDetails!: FormGroup;
   submitted: boolean = false;
@@ -29,8 +31,8 @@ export class Login implements OnInit {
     this.formGroupDetails = this.fb.group({
       username: [null, [Validators.required]],
       password: [null, [Validators.required, Validators.minLength(5)]],
-      captcha: [null, [Validators.required]]
-    })
+      captcha: [null, [Validators.required]],
+    });
   }
 
   get f() {
@@ -38,7 +40,7 @@ export class Login implements OnInit {
   }
 
   loadCaptcha() {
-    this.captchaService.getCaptcha().subscribe(res => {
+    this.captchaService.getCaptcha().subscribe((res) => {
       this.captchaSvg = res.svg;
       this.captchaId = res.captchaId;
     });
@@ -50,13 +52,13 @@ export class Login implements OnInit {
       email: this.formGroupDetails.value.username,
       password: this.formGroupDetails.value.password,
       captcha: this.formGroupDetails.value.captcha,
-      captchaId: this.captchaId
+      captchaId: this.captchaId,
     };
-    if(this.formGroupDetails.valid){
+    if (this.formGroupDetails.valid) {
       this.captchaService.login(payload).subscribe({
-        next: res => {
-          localStorage.setItem('token', res.token);
-          if(res.token){
+        next: (res) => {
+          if (res.token) {
+            this.tokenStoreService.setToken(res.token);
             this.router.navigate(['/dashboard']);
           }
         },
@@ -64,10 +66,9 @@ export class Login implements OnInit {
           console.log(err);
           this.errorMessage = err.error.message || 'Something went wrong';
           this.loadCaptcha();
-        }
+        },
       });
     }
   }
-
 
 }

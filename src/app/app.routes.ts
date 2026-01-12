@@ -5,6 +5,7 @@ import { DefaultRoute } from './auth/default-route/default-route';
 
 export const routes: Routes = [
   { path: '', component: Login },
+  { path: 'login', component: Login },
   { path: 'register', component: Register },
   {
     path: 'dashboard',
